@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>PM5 Monitor</title>
+    <style>
+        :root { color-scheme: dark; }
+        body {
+            margin: 0;
+            padding: 12px;
+            font: 13px -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #1e1e1e;
+            color: #eee;
+        }
+        select, button {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 6px;
+            margin-bottom: 8px;
+            font: inherit;
+        }
+        #status { opacity: 0.6; min-height: 1.2em; margin-bottom: 8px; }
+        .field { display: flex; justify-content: space-between; align-items: center; padding: 3px 0; border-bottom: 1px solid #333; }
+        .field-label { opacity: 0.7; }
+        #min-pace { background: #2a2a2a; color: #eee; border: 1px solid #444; text-align: right; }
+    </style>
+</head>
+<body>
+    <select id="transport">
+        <option value="bluetooth">Bluetooth</option>
+        <option value="usb">USB</option>
+        <option value="mock">Mock</option>
+    </select>
+    <button id="connect">Connect</button>
+    <div id="status"></div>
+    <div class="field">
+        <span class="field-label">Min pace (m:ss/500m)</span>
+        <input type="text" id="min-pace" placeholder="e.g. 2:00" size="6">
+    </div>
+    <div id="fields"></div>
+
+    <!-- Plain <script> tags, no bundler -- same load order as example/index.html. -->
+    <script src="pm5-base/lib/pm5-ble.js"></script>
+    <script src="pm5-base/lib/pm5-hid.js"></script>
+    <script src="pm5-base/lib/mock-data/csv-source.js"></script>
+    <script src="pm5-base/lib/mock-data/events-source.js"></script>
+    <script src="pm5-base/lib/pm5-mock.js"></script>
+    <script src="pm5-base/lib/pm5-fields.js"></script>
+    <script src="renderer.js"></script>
+</body>
+</html>

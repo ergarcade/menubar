@@ -1,0 +1,3 @@
+[submodule "pm5-base"]
+	path = pm5-base
+	url = https://github.com/ergarcade/pm5-base.git
